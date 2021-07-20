@@ -20,6 +20,7 @@ public class Main {
                         scanner.nextLine();
                         String taskName = scanner.nextLine();
                         taskList.addTask(taskName);
+                        System.out.println(taskList.showAllTasks());
                         break;
                     case 2:
                         System.out.println("Список всех задач: ");
