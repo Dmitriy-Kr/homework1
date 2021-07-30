@@ -19,30 +19,31 @@ public class TaskList {
 
     String showAllTasks() {
         StringBuilder result = new StringBuilder();
+        result.append("Список всех задач: ").append(System.lineSeparator());
         for (int i = 0; i < taskList.size(); i++) {
-            result.append((i + 1) + ". " + taskList.get(i).getTaskName() + " - " +
-                    (taskList.get(i).isTaskStatus() ? "выполнено" : "не выполнено"));
+            result.append(i + 1).append(". ").append(taskList.get(i).getTaskName()).append(" - ");
+            result.append(taskList.get(i).isTaskStatus() ? "выполнено" : "не выполнено");
             result.append(System.lineSeparator());
         }
         return result.toString();
     }
 
-    String showCompletedTasks() {
+    String printFinishedTasks() {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < taskList.size(); i++) {
             if (taskList.get(i).isTaskStatus()) {
-                result.append((i + 1) + ". " + taskList.get(i).getTaskName());
+                result.append(i + 1).append(". ").append(taskList.get(i).getTaskName());
                 result.append(System.lineSeparator());
             }
         }
         return result.toString();
     }
 
-    String showNotCompletedTasks() {
+    String printUnFinishedTasks() {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < taskList.size(); i++) {
             if (!taskList.get(i).isTaskStatus()) {
-                result.append((i + 1) + ". " + taskList.get(i).getTaskName());
+                result.append(i + 1).append(". ").append(taskList.get(i).getTaskName());
                 result.append(System.lineSeparator());
             }
         }
@@ -56,17 +57,4 @@ public class TaskList {
         taskList.get(numTask).setTaskStatus(true);
         return true;
     }
-
-    static void fillTestData(TaskList tl) {
-        tl.addTask("Помыть посуду");
-        tl.addTask("Убрать в квартире");
-        tl.addTask("Выгулять собаку");
-        tl.addTask("Сходить за продуктами");
-        tl.addTask("Вынести мусор");
-        tl.addTask("Помыть голову");
-        tl.markTaskAsCompleted(0);
-        tl.markTaskAsCompleted(2);
-        tl.markTaskAsCompleted(4);
-    }
-
 }
