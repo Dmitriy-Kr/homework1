@@ -19,7 +19,7 @@ public class Menu {
         System.out.println(menuItems.size() + 1 + ". Выход");
     }
 
-    private int getchoice() {
+    private int getChoice() {
         if (scanner.hasNextInt()) {
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -35,7 +35,7 @@ public class Menu {
         while (true) {
             printMenu();
             System.out.print("Выберите пункт меню (введите цифру): ");
-            choice = getchoice();
+            choice = getChoice();
             if (choice < 0 || choice > menuItems.size()) {
                 System.out.println("Выберите пункт меню");
                 continue;
